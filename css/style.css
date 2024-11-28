@@ -1,0 +1,54 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.example-container__row-direction {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.example-container__black-square {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+}
+
+.example-container__yellow-square {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+}
+
+.example-container__red-square{
+    width: 50px;
+    height: 50px;
+    background-color: red;
+    visibility: visible;
+}
+
+.example-container__green-rectangle{
+    width: 50px;
+    height: 20px;
+    background-color: green;
+    margin: 20px;
+    visibility: hidden;
+}
+
+.same-block {
+}
+
+.example-container__hidden-button {
+    margin: 20px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.list-links {
+    width: 800px;
+    height: 100px;
+}

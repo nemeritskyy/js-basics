@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <section class="example-container">
+            <h2>CSS - display: none</h2>
+            <div class="example-container__black-square" id="example1"></div>
+            <button type="submit" class="example-container__hidden-button"
+                onclick="cssDisplayNone()">CSS - display: none</button>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>JS - remove</h2>
+            <div class="example-container__black-square" id="example2"></div>
+            <button type="submit" class="example-container__hidden-button"
+                onclick="jsRemove()">JS - remove</button>
+        </section>
+        <script src="js/main.js"></script>
+        <hr>
+        <section class="example-container">
+            <h2>CSS + JS hidden</h2>
+            <div class="example-container__black-square" id="example3"></div>
+            <button type="submit" class="example-container__hidden-button"
+                onclick="cssHidden()">CSS + JS hidden</button>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>CSS + JS hidden / show</h2>
+            <div class="example-container__black-square" id="example4"></div>
+            <button type="submit" class="example-container__hidden-button"
+                onclick="cssHiddenShow(document.getElementById('example4'))">CSS
+                + JS hidden / show</button>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>(5 blocks) hidden / show</h2>
+            <div class="example-container__row-direction">
+                <div class="example-container__black-square same-block"></div>
+                <div class="example-container__black-square same-block"></div>
+                <div class="example-container__black-square same-block"></div>
+                <div class="example-container__black-square same-block"></div>
+                <div class="example-container__black-square same-block"></div>
+            </div>
+            <button type="submit" class="example-container__hidden-button"
+                onclick="cssHiddenShowAllBlocksByStyle(document.getElementsByClassName('same-block'))">(5 blocks) hidden /
+                show</button>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>Query selector</h2>
+            <input type="text" id="query-selector">
+            <button type="submit" class="example-container__hidden-button"
+                onclick="changeVisisbilityUsingSelector()">Query selector</button>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>Yellow square</h2>
+            <div class="example-container__yellow-square" onclick="showAlertAndAfterHidden(this)"></div>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>Red square</h2>
+            <div class="example-container__red-square" id="red-square"></div>
+            <button type="submit" class="example-container__hidden-button" id="red-square-button">Red square</button>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>Green rectangle</h2>
+            <input type="text" id="focus-on-input">
+            <div class="example-container__green-rectangle" id="green-rectangle"></div>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>Show image</h2>
+            <input type="text" id="image-url">
+            <img id="image-from-url">
+            <button type="submit" class="example-container__hidden-button" onclick="showImage()">Show image</button>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>Textarea and links</h2>
+            <textarea type="text" id="images-url" class="list-links"></textarea>
+            <button type="submit" class="example-container__hidden-button" onclick="showImages()">Show images</button>
+            <div class="example-container__row-direction" id="show-images">
+            </div>
+        </section>
+        <hr>
+        <script src="js/main.js"></script>
+    </body>
+</html>

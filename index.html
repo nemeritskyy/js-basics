@@ -7,6 +7,11 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <div id="coordinates">Х: 123, У: 984</div>
+        <div id="user-info">
+            <div id="user-language"></div>
+            <div id="user-coordinates"></div>
+        </div>
         <section class="example-container">
             <h2>CSS - display: none</h2>
             <div class="example-container__black-square" id="example1"></div>
@@ -87,6 +92,15 @@
             <textarea type="text" id="images-url" class="list-links"></textarea>
             <button type="submit" class="example-container__hidden-button" onclick="showImages()">Show images</button>
             <div class="example-container__row-direction" id="show-images">
+            </div>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>Inputs</h2>
+            <div class="example-container__row-direction" id="show-images">
+                <input type="text" id="local-storage">
+                <input type="text" id="coockie">
+                <input type="text" id="session-storage">
             </div>
         </section>
         <hr>

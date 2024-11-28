@@ -55,23 +55,17 @@ function listenRedSquare() {
 
 // Listen input and chane visibility for element
 function inputListener() {
-    const inputForListening = document.getElementById("focus-on-input");
-    const greenRectangle = document.getElementById("green-rectangle");
-    inputForListening.addEventListener(
-      "focus",
-      () => (greenRectangle.style.visibility = "visible")
-    );
-    inputForListening.addEventListener(
-      "input",
-      () => (greenRectangle.style.visibility = "hidden")
-    );
+  const inputForListening = document.getElementById("focus-on-input");
+  const greenRectangle = document.getElementById("green-rectangle");
+  inputForListening.addEventListener(
+    "focus",
+    () => (greenRectangle.style.visibility = "visible")
+  );
+  inputForListening.addEventListener(
+    "input",
+    () => (greenRectangle.style.visibility = "hidden")
+  );
 }
-
-// Run listeners after dom loading
-document.addEventListener("DOMContentLoaded", () => {
-  listenRedSquare();
-  inputListener();
-});
 
 // Show image by entered url
 function showImage() {
@@ -83,10 +77,91 @@ function showImage() {
 function showImages() {
   const imgArray = document.getElementById("images-url").value.split("\n");
   const imgCointainer = document.getElementById("show-images");
-  imgCointainer.innerHTML = '';
+  imgCointainer.innerHTML = "";
   Array.from(imgArray).forEach((imgSrc) => {
     const img = document.createElement("img");
     img.src = imgSrc;
     imgCointainer.appendChild(img);
   });
+}
+
+// Track position of the cursor and show it in the element
+function trackPosition(cursor) {
+  document.getElementById("coordinates").innerHTML =
+    "Х: " + cursor.pageX + ", У: " + cursor.pageY;
+}
+
+addEventListener("mousemove", trackPosition, false);
+
+// Get language by abriviatura
+function getLanguage(userLanguage) {
+  switch (userLanguage) {
+    case "uk-UA":
+      return "Ukrainian";
+    case "en-US":
+      return "English (US)";
+    case "en-GB":
+      return "English (UK)";
+    case "fr-FR":
+      return "French";
+    case "de-DE":
+      return "German";
+    default:
+      return "Language not defined";
+  }
+}
+
+// Show user language in element
+document.getElementById("user-language").innerHTML =
+  "User language is<br><b>" + getLanguage(navigator.language) + "</b>";
+
+// Show user coordinates
+function getCoordinates() {
+  const coordinatesContainer = document.getElementById("user-coordinates");
+  navigator.geolocation.getCurrentPosition((position) => {
+    let lat = position.coords.latitude;
+    let long = position.coords.longitude;
+    coordinatesContainer.innerHTML = "Ш: " + lat + ", Д: " + long;
+  });
+}
+
+// Run listeners after dom loading
+document.addEventListener("DOMContentLoaded", () => {
+  onload();
+  listenRedSquare();
+  inputListener();
+  updateStorage();
+  // getCoordinates();
+});
+
+// Check data onload
+function onload() {
+  const elementLocalStorege = document.getElementById("local-storage");
+  elementLocalStorege.value = localStorage.getItem("example1");
+
+  const elementCookie = document.getElementById("coockie");
+  elementCookie.value = document.cookie.substring(9);
+
+  const elementSessionStorage = document.getElementById("session-storage");
+  elementSessionStorage.value = sessionStorage.getItem("example3");
+}
+
+// Update storage if input changed
+function updateStorage() {
+  const elementLocalStorege = document.getElementById("local-storage");
+  elementLocalStorege.addEventListener("input", () =>
+    localStorage.setItem("example1", elementLocalStorege.value)
+  );
+
+  const elementCookie = document.getElementById("coockie");
+  elementCookie.addEventListener(
+    "input",
+    () => (document.cookie = "example2=" + elementCookie.value)
+  );
+
+  const elementSessionStorage = document.getElementById("session-storage");
+  elementSessionStorage.addEventListener(
+    "input",
+    () => sessionStorage.setItem("example3", elementSessionStorage.value)
+  );
 }

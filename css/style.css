@@ -52,3 +52,22 @@
     width: 800px;
     height: 100px;
 }
+
+#coordinates {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    background-color: aquamarine;
+}
+
+#user-info {
+    display: flex;
+    width: 250px;
+    padding: 10px;
+    position: fixed;
+    top: 30px;
+    right: 0px;
+    background-color: coral;
+    align-items: center;
+    justify-content: center;
+}

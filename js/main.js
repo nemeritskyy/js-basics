@@ -132,6 +132,9 @@ document.addEventListener("DOMContentLoaded", () => {
   inputListener();
   updateStorage();
   // getCoordinates();
+
+  listenBlocks();
+  listenForm();
 });
 
 // Check data onload
@@ -160,8 +163,63 @@ function updateStorage() {
   );
 
   const elementSessionStorage = document.getElementById("session-storage");
-  elementSessionStorage.addEventListener(
-    "input",
-    () => sessionStorage.setItem("example3", elementSessionStorage.value)
+  elementSessionStorage.addEventListener("input", () =>
+    sessionStorage.setItem("example3", elementSessionStorage.value)
   );
+}
+
+// Scroll to the top
+function slideUp() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  const button = document.getElementById("button-up");
+  button.style.visibility = "hidden";
+  button.style.opacity = "0";
+}
+
+// Listen scroll and show hidden div
+window.addEventListener("scroll", () => {
+  const scrollTop =
+    document.documentElement.scrollTop || document.body.scrollTop;
+  const scrollHeight =
+    document.documentElement.scrollHeight || document.body.scrollHeight;
+  const clientHeight =
+    document.documentElement.clientHeight || window.innerHeight;
+
+  if (scrollTop + clientHeight >= scrollHeight) {
+    const button = document.getElementById("button-up");
+    button.style.visibility = "visible";
+    button.style.opacity = "1";
+  }
+});
+
+// Add block listeners
+function listenBlocks() {
+  const parrentBlock = document.getElementById("parrent-block");
+  const childBlock = document.getElementById("child-block");
+
+  childBlock.addEventListener("click", (event) => {
+    event.stopPropagation();
+    alert("Child");
+  });
+  parrentBlock.addEventListener("click", () => alert("Parrent"));
+}
+
+// Disable scroll
+function showGreySquare() {
+  const greySquare = document.getElementById("grey-sq");
+  greySquare.style.visibility = "visible";
+  document.body.style.overflow = "hidden";
+
+  greySquare.addEventListener("click", () => {
+    greySquare.style.visibility = "hidden";
+    document.body.style.overflow = "visible";
+  });
+}
+
+function listenForm() {
+  const myForm = document.getElementById("my-form");
+  myForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    alert("Data sended without reload");
+  });
 }

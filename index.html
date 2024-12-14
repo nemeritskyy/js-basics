@@ -7,11 +7,22 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
+        <div id="grey-sq">1</div>
         <div id="coordinates">Х: 123, У: 984</div>
         <div id="user-info">
             <div id="user-language"></div>
             <div id="user-coordinates"></div>
         </div>
+        <hr>
+        <section class="example-container">
+            <h2>Drag & Drop</h2>
+            <form id="drop-form">
+                <label for="file-field" class="file-field" id="drop-area">Choose file</label>
+                <input type="file" id="file-field" accept="image/*">
+            </form>
+        </section>
+        <hr>
+        <div id="button-up"><button onclick="slideUp()">Up</button></div>
         <section class="example-container">
             <h2>CSS - display: none</h2>
             <div class="example-container__black-square" id="example1"></div>
@@ -26,6 +37,7 @@
                 onclick="jsRemove()">JS - remove</button>
         </section>
         <script src="js/main.js"></script>
+        <script src="js/dd.js"></script>
         <hr>
         <section class="example-container">
             <h2>CSS + JS hidden</h2>
@@ -52,7 +64,8 @@
                 <div class="example-container__black-square same-block"></div>
             </div>
             <button type="submit" class="example-container__hidden-button"
-                onclick="cssHiddenShowAllBlocksByStyle(document.getElementsByClassName('same-block'))">(5 blocks) hidden /
+                onclick="cssHiddenShowAllBlocksByStyle(document.getElementsByClassName('same-block'))">(5
+                blocks) hidden /
                 show</button>
         </section>
         <hr>
@@ -60,37 +73,43 @@
             <h2>Query selector</h2>
             <input type="text" id="query-selector">
             <button type="submit" class="example-container__hidden-button"
-                onclick="changeVisisbilityUsingSelector()">Query selector</button>
+                onclick="changeVisisbilityUsingSelector()">Query
+                selector</button>
         </section>
         <hr>
         <section class="example-container">
             <h2>Yellow square</h2>
-            <div class="example-container__yellow-square" onclick="showAlertAndAfterHidden(this)"></div>
+            <div class="example-container__yellow-square"
+                onclick="showAlertAndAfterHidden(this)"></div>
         </section>
         <hr>
         <section class="example-container">
             <h2>Red square</h2>
             <div class="example-container__red-square" id="red-square"></div>
-            <button type="submit" class="example-container__hidden-button" id="red-square-button">Red square</button>
+            <button type="submit" class="example-container__hidden-button"
+                id="red-square-button">Red square</button>
         </section>
         <hr>
         <section class="example-container">
             <h2>Green rectangle</h2>
             <input type="text" id="focus-on-input">
-            <div class="example-container__green-rectangle" id="green-rectangle"></div>
+            <div class="example-container__green-rectangle"
+                id="green-rectangle"></div>
         </section>
         <hr>
         <section class="example-container">
             <h2>Show image</h2>
             <input type="text" id="image-url">
             <img id="image-from-url">
-            <button type="submit" class="example-container__hidden-button" onclick="showImage()">Show image</button>
+            <button type="submit" class="example-container__hidden-button"
+                onclick="showImage()">Show image</button>
         </section>
         <hr>
         <section class="example-container">
             <h2>Textarea and links</h2>
             <textarea type="text" id="images-url" class="list-links"></textarea>
-            <button type="submit" class="example-container__hidden-button" onclick="showImages()">Show images</button>
+            <button type="submit" class="example-container__hidden-button"
+                onclick="showImages()">Show images</button>
             <div class="example-container__row-direction" id="show-images">
             </div>
         </section>
@@ -104,6 +123,24 @@
             </div>
         </section>
         <hr>
-        <script src="js/main.js"></script>
+        <section class="example-container">
+            <h2>Listen divs</h2>
+            <div class="example-container__black-square" id="parrent-block">
+                <div class="example-container__red-square"
+                    id="child-block"></div>
+            </div>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>Grey square full window</h2>
+            <button type="submit" class="example-container__hidden-button"
+                onclick="showGreySquare()">Grey square</button>
+        </section>
+        <hr>
+        <section class="example-container">
+            <h2>Go</h2>
+            <form id="my-form"><input type="submit" value="GO"></form>
+        </section>
+        <hr>
     </body>
 </html>
